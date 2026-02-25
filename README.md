@@ -41,7 +41,7 @@ Both datasets provide well-structured variables related to prescription drug use
 
 ## Tools & Skills
 
-- Python (pandas, matplotlib, seaborn)
+- Python (pandas, matplotlib)
 - SQL
 - Data cleaning and exploratory analysis
 
