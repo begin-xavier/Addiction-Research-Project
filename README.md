@@ -1,60 +1,59 @@
-# Addiction-Research-Project
-Repository for 2026 Data Science For Addiction Research Fellowship, research conducted by Xavier McFadden
+# Exploratory Data Analysis of Prescription Drug Misuse Patterns
 
+**Data Science for Addiction Research Fellowship — Spring 2026**
+**Xavier McFadden | University of Mississippi**
 
-Research Plan — Xavier McFadden
-Data Science for Addiction Research Fellowship
-Spring 2025
+---
 
+## Overview
 
-Topic
+Prescription drug misuse among young adults — especially stimulants like Adderall and sedatives like Xanax — has become a growing public health concern in the United States. Understanding who misuses these drugs, what factors appear alongside misuse, and how patterns vary across populations can help guide early awareness and prevention efforts.
 
-I want to look at prescription stimulant misuse (Adderall, Ritalin, etc.) among college students.
-Being at Ole Miss I've seen how common this is, and I think there's a real gap between how normalized it is on campuses and how little attention it gets. I want to use data to actually look at the problem instead of just assuming things about it.
+This project uses national public health datasets to identify and visualize key patterns related to prescription drug misuse.
 
+---
 
-Research Questions
+## Research Questions
 
-- How has stimulant misuse among college students changed over the past several years?
-- Who is most likely to misuse — are there patterns by gender, race, income, etc.?
-- Do students who misuse stimulants actually seek help, and if not, why not?
+1. Which demographics report the highest levels of prescription drug misuse?
+2. What behavioral or lifestyle factors appear alongside stimulant or sedative misuse?
+3. How do misuse rates vary across age, gender, and geographic region?
+4. What patterns can be communicated visually to support prevention efforts?
 
+---
 
-Data
+## Data Sources
 
-I plan to use the NSDUH (National Survey on Drug Use and Health) public dataset from SAMHSA.
-It's free, nationally representative, and has the variables I need. I'll focus on college-enrolled students aged 18-22 and look at data from around 2015 to 2022.
+- **NSDUH** — National Survey on Drug Use and Health (SAMHSA)
+- **YRBSS** — CDC Youth Risk Behavior Surveillance System
 
+Both datasets provide well-structured variables related to prescription drug use, mental health, demographics, and behavioral factors.
 
-Analysis
+---
 
-I'm still learning data science but I know basic Python. My plan is to:
-- Run descriptive statistics to look at prevalence over time
-- Break the data down by demographics to find patterns
-- Try a logistic regression to see what predicts misuse
-- Look at treatment-seeking rates among those who misused
+## Approach
 
-I'll need guidance on the more advanced parts, especially the regression, but I'm committed to learning as I go.
+- **Data Preparation** — handling missing values, aligning relevant variables across datasets
+- **Exploratory Data Analysis** — examining trends, correlations, and subgroup differences
+- **Visual Analytics** — charts and graphs to identify and communicate meaningful patterns
 
+---
 
-Paper Structure (targeting 7-8 pages)
+## Tools & Skills
 
-1. Introduction — why this matters, my research questions
-2. Literature Review — what's already been found
-3. Methods — the dataset and what I did with it
-4. Results — what I actually found, with a chart or two
-5. Discussion — what it means, what the limitations are
-6. Conclusion — key takeaways
-7. References
+- Python (pandas, matplotlib, seaborn)
+- SQL
+- Data cleaning and exploratory analysis
 
+---
 
-Rough Timeline
+## Goals
 
-February — get the dataset downloaded, start reading background literature
-March — run the analysis, figure out what I actually have
-April — write the paper, get feedback, revise
-Early May — final edits and submit
+Produce a clear, well-structured research paper that contributes to understanding prescription drug misuse and demonstrates the ability to apply data science methods to a real public health problem.
 
+---
+
+*This project is part of the Data Science for Addiction Research Fellowship (DSARF) at the University of Mississippi.*
 
 What I'm hoping to get from this fellowship
 
