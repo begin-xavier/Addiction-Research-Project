@@ -1,13 +1,13 @@
 # Exploratory Data Analysis of Prescription Drug Misuse Patterns
 
-**Data Science for Addiction Research Fellowship — Spring 2026**
+**Data Science for Addiction Research Fellowship - Spring 2026**
 **Xavier McFadden | University of Mississippi**
 
 ---
 
 ## Overview
 
-Prescription drug misuse among young adults — especially stimulants like Adderall and sedatives like Xanax — has become a growing public health concern in the United States. Understanding who misuses these drugs, what factors appear alongside misuse, and how patterns vary across populations can help guide early awareness and prevention efforts.
+Prescription drug misuse among young adults - especially stimulants like Adderall and sedatives like Xanax - has become a growing public health concern in the United States. Understanding who misuses these drugs, what factors appear alongside misuse, and how patterns vary across populations can help guide early awareness and prevention efforts.
 
 This project uses national public health datasets to identify and visualize key patterns related to prescription drug misuse.
 
@@ -25,7 +25,7 @@ This project uses national public health datasets to identify and visualize key 
 
 ## Data Sources
 
-- **NSDUH (2024) ** — National Survey on Drug Use and Health (SAMHSA)
+- **NSDUH (2024) ** -  National Survey on Drug Use and Health (SAMHSA)
 - **NSDUH (2015) **
 
 Both datasets provide well-structured variables related to prescription drug use, mental health, demographics, and behavioral factors.
@@ -34,9 +34,9 @@ Both datasets provide well-structured variables related to prescription drug use
 
 ## Approach
 
-- **Data Preparation** — handling missing values, aligning relevant variables across datasets
-- **Exploratory Data Analysis** — examining trends, correlations, and subgroup differences
-- **Visual Analytics** — charts and graphs to identify and communicate meaningful patterns
+- **Data Preparation** - handling missing values, aligning relevant variables across datasets
+- **Exploratory Data Analysis** - examining trends, correlations, and subgroup differences
+- **Visual Analytics** - charts and graphs to identify and communicate meaningful patterns
 
 ---
 
