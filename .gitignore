@@ -1,0 +1,6 @@
+﻿data/
+*.txt
+*.tsv
+*.csv
+__pycache__/
+*.pyc
