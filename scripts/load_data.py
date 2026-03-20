@@ -15,3 +15,8 @@ def load_2015(filepath):
     df_filtered2015 = df_filtered2015[df_filtered2015['AGE2'].between(5, 12)]
     
     return df_filtered2015
+
+def load_2024_full(filepath):
+    df2024 = pd.read_csv(filepath, sep="\t", low_memory=False)
+    key_cols = ['AGE3', 'STMNMREC', 'SEDNMREC', 'HEALTH', 'SPDPSTYR', 'SEDRSSLEP', 'TRQRSSLEP', 'UDSTWDSLEEP', 'UDSVWDSLEEP']
+    return df2024[key_cols]
