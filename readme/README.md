@@ -48,6 +48,15 @@ Both datasets provide well-structured variables related to prescription drug use
 
 ---
 
+## Structure (Folders)
+
+Data - stores both dataset files
+Notebooks - stores ipynb files used to analyze data
+Scripts - stores modular python scripts used to clean and update dataset
+Output - charts and exports will be here
+
+---
+
 ## Goals
 
 Produce a clear, well-structured research paper that contributes to understanding prescription drug misuse and demonstrates the ability to apply data science methods to a real public health problem.
