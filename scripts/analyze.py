@@ -1,29 +1,40 @@
 import pandas as pd
 
-def misuse_counts(filtered_df):
-    stim = filtered_df['STMNMREC'].isin([1, 2]).sum()
-    sed = filtered_df['SEDNMREC'].isin([1, 2]).sum()
-    return {'stimulant_misuse': stim, 'sedative_misuse': sed}
-    
-    
-def distress_correlation(filtered_df):
-    filtered_df = filtered_df.dropna(subset=['SPDPSTYR']) #dropping empty rows so that correlation can be calculated
-    stress = filtered_df['SPDPSTYR'] == 1
-    print("Stress sum", stress.sum()) #checking how many stressed individuals are in the dataset
-    
-    stim_misuse = filtered_df['STMNMREC'].isin([1, 2]) #creating a boolean series for stimulant misuse
-    sed_misuse = filtered_df['SEDNMREC'].isin([1, 2]) #creating a boolean series for sedative misuse
-    stim_corr = stress.corr(stim_misuse) #calculating correlation between stress and stimulant misuse
-    sed_corr = stress.corr(sed_misuse) #calculating correlation between stress and sedative misuse
-    return {'stimulant_correlation': stim_corr, 'sedative_correlation': sed_corr}
 
-def health_breakdown(filtered_df):
-    #stimulant misusers
-    stim_users = filtered_df[filtered_df['STMNMREC'].isin([1, 2])]
-    #sedative misusers
-    sed_users = filtered_df[filtered_df['SEDNMREC'].isin([1, 2])]
-    #health distribution for stimulant misusers
-    stim_health = stim_users['HEALTH'].value_counts().sort_index()
-    #health distribution for sedative misusers
-    sed_health = sed_users['HEALTH'].value_counts().sort_index()
-    return {'stimulant_health_distribution': stim_health.to_dict(), 'sedative_health_distribution': sed_health.to_dict()}
+def misuse_counts(df, misuse_cols, misuse_values=[1, 2]):
+    return {col: df[col].isin(misuse_values).sum() for col in misuse_cols}
+
+
+def distress_correlation(df, misuse_cols, distress_col, misuse_values=[1, 2]):
+    results = {}
+    for col in misuse_cols:
+        misusers = df[df[col].isin(misuse_values)].dropna(subset=[distress_col])
+        distressed = (misusers[distress_col] == 1).sum()
+        not_distressed = (misusers[distress_col] == 0).sum()
+        results[col] = {'distressed': distressed, 'not_distressed': not_distressed}
+    return results
+
+
+def health_breakdown(df, misuse_cols, health_col='HEALTH', misuse_values=[1, 2]):
+    results = {}
+    for col in misuse_cols:
+        misusers = df[df[col].isin(misuse_values)]
+        results[col] = misusers[health_col].value_counts().sort_index().to_dict()
+    return results
+
+
+def demographic_breakdown(df, misuse_cols, demographic_cols, misuse_values=[1, 2]):
+    results = {}
+    for misuse_col in misuse_cols:
+        misusers = df[df[misuse_col].isin(misuse_values)]
+        results[misuse_col] = {}
+        for demo_col in demographic_cols:
+            if demo_col in df.columns:
+                results[misuse_col][demo_col] = misusers[demo_col].value_counts().to_dict()
+    return results
+
+
+def age_group_comparison(df, misuse_cols, age_col, age_range, misuse_values=[1, 2]):
+    age_min, age_max = age_range
+    age_group_df = df[df[age_col].between(age_min, age_max)]
+    return misuse_counts(age_group_df, misuse_cols, misuse_values)
