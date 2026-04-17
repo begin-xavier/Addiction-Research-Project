@@ -37,14 +37,15 @@ Both datasets provide well-structured variables related to prescription drug use
 - **Data Preparation** - handling missing values, aligning relevant variables across datasets
 - **Exploratory Data Analysis** - examining trends, correlations, and subgroup differences
 - **Visual Analytics** - charts and graphs to identify and communicate meaningful patterns
+- **Modular Pipeline** - load_data.py, analyze.py, visualize.py
 
 ---
 
 ## Tools & Skills
 
 - Python (pandas, matplotlib)
-- SQL
 - Data cleaning and exploratory analysis
+- Modular Python Cleaning
 
 ---
 
@@ -64,8 +65,3 @@ Produce a clear, well-structured research paper that contributes to understandin
 ---
 
 *This project is part of the Data Science for Addiction Research Fellowship (DSARF) at the University of Mississippi.*
-
-What I'm hoping to get from this fellowship
-
-Honestly I want to get better at working with real data and producing something meaningful.
-I also want to understand what a career in data science can actually look like, because that's the direction I'm heading. This feels like a good place to start figuring that out.
