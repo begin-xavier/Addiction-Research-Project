@@ -80,3 +80,93 @@ def plot_health_breakdown(output_dir):
     ax2.legend()
     
     save_plot('health_breakdown.png', output_dir)
+
+def plot_income_breakdown(output_dir):
+    income_labels = ['<$10k', '$10-19k', '$20-29k', '$30-39k', '$40-49k', '$50-74k', '$75k+']
+    
+    # 2024
+    stim_2024 = [44, 46, 21, 35, 48, 58, 156]
+    sed_2024 = [12, 4, 5, 4, 4, 5, 11]
+    
+    # 2015
+    stim_2015 = [233, 157, 121, 115, 88, 143, 362]
+    sed_2015 = [16, 17, 17, 18, 11, 13, 53]
+    
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+    
+    # 2015
+    ax1.bar([i - 0.2 for i in range(len(income_labels))], stim_2015, width=0.4, label='Stimulants', color='steelblue')
+    ax1.bar([i + 0.2 for i in range(len(income_labels))], sed_2015, width=0.4, label='Sedatives', color='coral')
+
+    ax1.set_xticks(range(len(income_labels)))
+    ax1.set_xticklabels(income_labels)
+    ax1.set_ylabel('Number of misusers')
+    ax1.set_title('Income Breakdown (2015)')
+    ax1.legend()
+    
+    # 2024
+    ax2.bar([i - 0.2 for i in range(len(income_labels))], stim_2024, width=0.4, label='Stimulants', color='steelblue')
+    ax2.bar([i + 0.2 for i in range(len(income_labels))], sed_2024, width=0.4, label='Sedatives', color='coral')
+    
+    ax2.set_xticks(range(len(income_labels)))
+    ax2.set_xticklabels(income_labels)
+    ax2.set_ylabel('Number of misusers')
+    ax2.set_title('Income Breakdown (2024)')
+    ax2.legend()
+    
+    save_plot('income_breakdown.png', output_dir)
+    
+def plot_distress_age_comparison(output_dir):
+    age_groups = ['16-25', '26-35']
+    
+    stim = [57, 43]
+    sed = [79, 34]
+    
+    x = range(len(age_groups))
+    
+    fig, ax = plt.subplots(figsize=(8, 5))
+    
+    ax.bar([i - 0.2 for i in x], stim, width=0.4, label='Stimulants', color='steelblue')
+    ax.bar([i + 0.2 for i in x], sed, width=0.4, label='Sedatives', color='coral')
+    
+    ax.set_xticks(x)
+    ax.set_xticklabels(age_groups)
+    ax.set_ylabel('% of misusers with psychological distress')
+    ax.set_title('Stress Levels Among Prescription Drug Misusers by Age (2024)')
+    ax.legend()
+    save_plot('distress_age_comparison.png', output_dir)
+    
+def plot_race_breakdown(output_dir):
+    racial_groups = ['White', 'Hispanic', 'Black', 'Multiracial', 'Asian']
+    
+    stim_2015 = [71, 14, 5, 6, 2]
+    stim_2024 = [62, 19, 5, 9, 3]
+    
+    sed_2015 = [67, 15, 5, 9 ,3]
+    sed_2024 = [60, 24, 7, 7, 2]
+    
+    x = range(len(racial_groups))
+    
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+    
+    # 2015
+    ax1.bar([i - 0.2 for i in x], stim_2015, width=0.4, label='Stimulants', color='steelblue')
+    ax1.bar([i + 0.2 for i in x], sed_2015, width=0.4, label='Sedatives', color='coral')
+    
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(racial_groups)
+    ax1.set_ylabel('% of misusers')
+    ax1.set_title('Racial Breakdown (2015)')
+    ax1.legend()
+    
+    # 2024
+    ax2.bar([i - 0.2 for i in x], stim_2024, width=0.4, label='Stimulants', color='steelblue')
+    ax2.bar([i + 0.2 for i in x], sed_2024, width=0.4, label='Sedatives', color='coral')
+    
+    ax2.set_xticks(x)
+    ax2.set_xticklabels(racial_groups)
+    ax2.set_ylabel('% of misusers')
+    ax2.set_title('Racial Breakdown (2024)')
+    ax2.legend()
+    
+    save_plot('race_breakdown.png', output_dir)
