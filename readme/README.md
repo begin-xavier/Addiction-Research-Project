@@ -65,3 +65,7 @@ Produce a clear, well-structured research paper that contributes to understandin
 ---
 
 *This project is part of the Data Science for Addiction Research Fellowship (DSARF) at the University of Mississippi.*
+
+## Notes on Methodology
+
+Analysis uses unweighted survey responses. NSDUH applies complex survey weights  to produce nationally representative population estimates, but this project focuses on identifying patterns and relationships within the sample rather than generating precise national figures. Weighted estimates may differ from the percentages reported.
