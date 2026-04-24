@@ -170,30 +170,3 @@ def plot_race_breakdown(output_dir):
     ax2.legend()
     
     save_plot('race_breakdown.png', output_dir)
-
-    
-    def plot_grouped_bar(output_dir, filename, title, ylabel, labels, series, figsize=(10, 5)):
-        """
-        labels: list of x axis labels example ['2015', '2024']
-        series: dict of {name: values} example {'Stimulants': [1219, 408], 'Sedatives': [145, 45]}
-        """
-        x = range(len(labels))
-        n = len(series)
-        width = 0.8 / n
-        
-        fig, ax = plt.subplots(figsize=figsize)
-        
-        # fill in the rest
-        # hint: you need to loop through series.items() to plot each bar group
-        # the offset for each group needs to be calculated based on how many series there are
-        
-        for i, (name, values) in enumerate(series.items()):
-            offset = (i - n/2 + 0.5) * width
-            ax.bar ([x + offset for x in range (len(labels))], values, width = width, label = name)
-    
-        ax.set_xticks(x)
-        ax.set_xticklabels(labels)
-        ax.set_ylabel(ylabel)
-        ax.set_title(title)
-        ax.legend()
-        save_plot(filename, output_dir)
