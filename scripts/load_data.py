@@ -34,8 +34,8 @@ def load_all_years(data_dir):
         2015: 'NSDUH_2015_Tab.tsv',
         2016: 'NSDUH_2016_Tab.tsv',
         2018: 'NSDUH_2018_Tab.tsv',
-        2020: 'NSDUH_2020_Tab.tsv',
-        2022: 'NSDUH_2022_Tab.tsv',
+        2020: 'NSDUH_2020_Tab.txt',
+        2022: 'NSDUH_2022_Tab.txt',
         2024: 'NSDUH_2024_Tab.txt'
     }
     
