@@ -116,10 +116,10 @@ def plot_income_breakdown(output_dir):
     save_plot('income_breakdown.png', output_dir)
     
 def plot_distress_age_comparison(output_dir):
-    age_groups = ['16-25', '26-35']
+    age_groups = ['2015\n(16-25)', '2024\n(16-25)', '2024\n(26-35)']
     
-    stim = [57, 43]
-    sed = [79, 34]
+    stim = [33, 57, 43]
+    sed = [44, 79, 34]
     
     x = range(len(age_groups))
     
@@ -131,7 +131,7 @@ def plot_distress_age_comparison(output_dir):
     ax.set_xticks(x)
     ax.set_xticklabels(age_groups)
     ax.set_ylabel('% of misusers with psychological distress')
-    ax.set_title('Stress Levels Among Prescription Drug Misusers by Age (2024)')
+    ax.set_title('Psychological Distress Among Misusers by Group')
     ax.legend()
     save_plot('distress_age_comparison.png', output_dir)
     
