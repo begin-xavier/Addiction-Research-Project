@@ -113,7 +113,6 @@ def plot_income_breakdown(output_dir):
     ax2.set_ylabel('Number of misusers')
     ax2.set_title('Income Breakdown (2024)')
     ax2.legend()
-    
     save_plot('income_breakdown.png', output_dir)
     
 def plot_distress_age_comparison(output_dir):
@@ -168,7 +167,6 @@ def plot_race_breakdown(output_dir):
     ax2.set_ylabel('% of misusers')
     ax2.set_title('Racial Breakdown (2024)')
     ax2.legend()
-    
     save_plot('race_breakdown.png', output_dir)
 
     
@@ -197,6 +195,7 @@ def plot_grouped_bar(output_dir, filename, title, ylabel, labels, series, figsiz
         ax.set_title(title)
         ax.legend()
         save_plot(filename, output_dir)
+
 def plot_trend_line(output_dir, years, series):
     fig, ax = plt.subplots(figsize=(10, 5))
     
@@ -208,3 +207,36 @@ def plot_trend_line(output_dir, years, series):
     ax.set_title('Prescription Drug Misuse Trend 2015-2024')
     ax.legend()
     save_plot('trend_line.png', output_dir)
+
+def plot_race_rates(output_dir):
+    groups = ['White', 'Black', 'Native Am.', 'Pacific Isl.', 'Asian', 'Multiracial', 'Hispanic']
+    
+    stim_2015 = [8.6, 2.3, 3.5, 4.2, 3.0, 7.5, 4.3]
+    stim_2024 = [3.0, 0.8, 2.0, 1.9, 1.4, 3.2, 1.7]
+    
+    sed_2015 = [1.0, 0.3, 0.3, 0.8, 0.4, 1.4, 0.5]
+    sed_2024 = [0.3, 0.1, 0.0, 0.0, 0.1, 0.3, 0.2]
+    
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+    
+    x = range(len(groups))
+    width = 0.35
+    
+    ax1.bar([i - width/2 for i in x], stim_2015, width=width, label='2015', color='steelblue')
+    ax1.bar([i + width/2 for i in x], stim_2024, width=width, label='2024', color='coral')
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(groups, rotation=45, ha='right')
+    ax1.set_ylabel('% of racial group that misuses')
+    ax1.set_title('Stimulant Misuse Rate by Race')
+    ax1.legend()
+    
+    ax2.bar([i - width/2 for i in x], sed_2015, width=width, label='2015', color='steelblue')
+    ax2.bar([i + width/2 for i in x], sed_2024, width=width, label='2024', color='coral')
+    ax2.set_xticks(x)
+    ax2.set_xticklabels(groups, rotation=45, ha='right')
+    ax2.set_ylabel('% of racial group that misuses')
+    ax2.set_title('Sedative Misuse Rate by Race')
+    ax2.legend()
+    
+    plt.tight_layout()
+    save_plot('race_rates.png', output_dir)
