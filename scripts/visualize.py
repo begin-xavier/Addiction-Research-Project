@@ -172,7 +172,7 @@ def plot_race_breakdown(output_dir):
     save_plot('race_breakdown.png', output_dir)
 
     
-    def plot_grouped_bar(output_dir, filename, title, ylabel, labels, series, figsize=(10, 5)):
+def plot_grouped_bar(output_dir, filename, title, ylabel, labels, series, figsize=(10, 5)):
         """
         labels: list of x axis labels example ['2015', '2024']
         series: dict of {name: values} example {'Stimulants': [1219, 408], 'Sedatives': [145, 45]}
@@ -197,3 +197,14 @@ def plot_race_breakdown(output_dir):
         ax.set_title(title)
         ax.legend()
         save_plot(filename, output_dir)
+def plot_trend_line(output_dir, years, series):
+    fig, ax = plt.subplots(figsize=(10, 5))
+    
+    for name, values in series.items():
+        ax.plot(years, values, marker='o', label=name)
+    
+    ax.set_xlabel('Year')
+    ax.set_ylabel('Number of Misusers (Ages 16-25)')
+    ax.set_title('Prescription Drug Misuse Trend 2015-2024')
+    ax.legend()
+    save_plot('trend_line.png', output_dir)
