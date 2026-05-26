@@ -1,9 +1,14 @@
 import pandas as pd
 
 
+def misuse_counts2(df, misuse_cols, misuse_values=[1, 2]):
+    #return {f[col].isin(misuse_values).sum() for col in misuse_cols}
+    data_all = [df[col].isin(misuse_values).sum() for col in misuse_cols]
+    return data_all
+    
+
 def misuse_counts(df, misuse_cols, misuse_values=[1, 2]):
     return {col: df[col].isin(misuse_values).sum() for col in misuse_cols}
-
 
 def distress_correlation(df, misuse_cols, distress_col, misuse_values=[1, 2]):
     results = {}
@@ -38,3 +43,9 @@ def age_group_comparison(df, misuse_cols, age_col, age_range, misuse_values=[1, 
     age_min, age_max = age_range
     age_group_df = df[df[age_col].between(age_min, age_max)]
     return misuse_counts(age_group_df, misuse_cols, misuse_values)
+
+def get_distress_pct(df, misuse_col, distress_col):
+    misusers = df[df[misuse_col].isin([1,2])].dropna(subset=[distress_col])
+    distressed = (misusers[distress_col] == 1).sum()
+    total = len(misusers)
+    return round(distressed / total * 100, 1)

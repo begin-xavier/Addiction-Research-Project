@@ -208,15 +208,7 @@ def plot_trend_line(output_dir, years, series):
     ax.legend()
     save_plot('trend_line.png', output_dir)
 
-def plot_race_rates(output_dir):
-    groups = ['White', 'Black', 'Native Am.', 'Pacific Isl.', 'Asian', 'Multiracial', 'Hispanic']
-    
-    stim_2015 = [8.6, 2.3, 3.5, 4.2, 3.0, 7.5, 4.3]
-    stim_2024 = [3.0, 0.8, 2.0, 1.9, 1.4, 3.2, 1.7]
-    
-    sed_2015 = [1.0, 0.3, 0.3, 0.8, 0.4, 1.4, 0.5]
-    sed_2024 = [0.3, 0.1, 0.0, 0.0, 0.1, 0.3, 0.2]
-    
+def plot_race_rates(output_dir, groups, stim_2015, stim_2024, sed_2015, sed_2024):    
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
     
     x = range(len(groups))
