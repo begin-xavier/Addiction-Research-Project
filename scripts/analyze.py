@@ -49,3 +49,16 @@ def get_distress_pct(df, misuse_col, distress_col):
     distressed = (misusers[distress_col] == 1).sum()
     total = len(misusers)
     return round(distressed / total * 100, 1)
+
+def get_health_pcts(df, misuse_col):
+    misusers = df[df[misuse_col].isin([1,2])]
+    total = len(misusers)
+    health_counts = misusers['HEALTH'].value_counts()
+    # make sure all categories filled
+    health_counts = health_counts.reindex([1, 2, 3, 4, 5], fill_value=0)
+    return (health_counts / total * 100).round(1)
+
+def get_income_pcts(df, misuse_col):
+    misusers = df[df[misuse_col].isin([1,2])]
+    total = len(misusers)
+    return (misusers['IRFAMIN3'].value_counts().sort_index() / total * 100).round(1).tolist()
