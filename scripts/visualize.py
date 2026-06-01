@@ -87,7 +87,7 @@ def plot_income_breakdown(output_dir, stim_2015, stim_2024, sed_2015, sed_2024, 
     ax2.legend()
 
     fig.suptitle(f'Figure {figure_num}', fontsize=12, fontweight='bold')
-    fig.text(0.5, -0.02, caption, ha='center', fontsize=10, style='italic', wrap=True)
+    fig.text(0.5, -0.02, caption, ha='center', fontsize=12, style='italic', wrap=True)
     plt.tight_layout()
     save_plot('income_breakdown.png', output_dir)
 
@@ -137,3 +137,61 @@ def plot_race_rates(output_dir, groups, stim_2015, stim_2024, sed_2015, sed_2024
     fig.text(0.5, -0.02, caption, ha='center', fontsize=10, style='italic', wrap=True)
     plt.tight_layout()
     save_plot('race_rates.png', output_dir)
+
+def plot_misuse_counts(output_dir, years, series, figure_num, caption):
+    fig, ax = plt.subplots(figsize=(10, 5))
+    for name, values in series.items():
+        ax.plot(years, values, marker='o', label=name)
+        for x, y in zip(years, values):
+            ax.annotate(f'{y}', xy=(x, y), xytext=(0, 6),
+                       textcoords='offset points', ha='center', fontsize=8)
+    ax.set_xlabel('Year')
+    ax.set_ylabel('Number of Misusers (Ages 16-25)')
+    ax.set_title('Prescription Drug Misuse Trend 2015-2024')
+    ax.legend()
+    fig.suptitle(f'Figure {figure_num}', fontsize=12, fontweight='bold')
+    fig.text(0.5, -0.02, caption, ha='center', fontsize=10, style='italic', wrap=True)
+    plt.tight_layout()
+    save_plot('misuse_counts.png', output_dir)
+
+def plot_population_income(output_dir, income_2015, income_2024, labels, figure_num, caption):
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+    x = range(len(labels))
+    width = 0.6
+
+    bars1 = ax1.bar(x, income_2015, width=width, color='steelblue')
+    add_bar_labels(ax1, bars1)
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(labels, rotation=45, ha='right')
+    ax1.set_ylabel('% of sample')
+    ax1.set_title('Population Income Distribution (2015)')
+
+    bars2 = ax2.bar(x, income_2024, width=width, color='mediumpurple')
+    add_bar_labels(ax2, bars2)
+    ax2.set_xticks(x)
+    ax2.set_xticklabels(labels, rotation=45, ha='right')
+    ax2.set_ylabel('% of sample')
+    ax2.set_title('Population Income Distribution (2024)')
+
+    fig.suptitle(f'Figure {figure_num}', fontsize=12, fontweight='bold')
+    fig.text(0.5, -0.02, caption, ha='center', fontsize=12, style='italic', wrap=True)
+    plt.tight_layout()
+    save_plot('population_income.png', output_dir)
+
+def plot_distress_with_nonusers(output_dir, stim_2015, stim_2024, sed_2015, sed_2024, non_2015, non_2024, figure_num, caption):
+    labels = ['Stimulants\n2015', 'Stimulants\n2024', 'Sedatives\n2015', 'Sedatives\n2024', 'Non-Misusers\n2015', 'Non-Misusers\n2024']
+    values = [stim_2015, stim_2024, sed_2015, sed_2024, non_2015, non_2024]
+    colors = ['steelblue', 'steelblue', 'coral', 'coral', 'mediumpurple', 'mediumpurple']
+    alphas = [1, 0.5, 1, 0.5, 1, 0.5]
+
+    fig, ax = plt.subplots(figsize=(12, 5))
+    bars = [ax.bar(i, values[i], color=colors[i], alpha=alphas[i], width=0.6) for i in range(len(values))]
+    for bar in bars:
+        add_bar_labels(ax, bar)
+    ax.set_xticks(range(len(labels)))
+    ax.set_xticklabels(labels)
+    ax.set_ylabel('% with serious psychological distress')
+    fig.suptitle(f'Figure {figure_num}', fontsize=12, fontweight='bold')
+    fig.text(0.5, -0.02, caption, ha='center', fontsize=12, style='italic', wrap=True)
+    plt.tight_layout()
+    save_plot('distress_with_nonusers.png', output_dir)
